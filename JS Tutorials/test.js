@@ -132,48 +132,73 @@ mycar2.logDriver();
 // *******************************
 // Sorting methods
 // -------------------------------
-function bubbleSort(arr) {
-  for (let i = 0; i < arr.length; i++) {
-      for ( j = 0; j < arr.length - i -1; j++){
-        if(arr[j] > arr[j + 1]){
-            var temp = arr[j];
-            arr[j] = arr[j+1];
-            arr[j+1] = temp;
-        }
-      }
-  }
+// function bubbleSort(arr) {
+//   for (let i = 0; i < arr.length; i++) {
+//       for ( j = 0; j < arr.length - i -1; j++){
+//         if(arr[j] > arr[j + 1]){
+//             var temp = arr[j];
+//             arr[j] = arr[j+1];
+//             arr[j+1] = temp;
+//         }
+//       }
+//   }
 
-  return arr;
-} // bubble sort
+//   return arr;
+// } // bubble sort
 
-function merge(left,right){
-    let arr = [];
+// function merge(left,right){
+//     let arr = [];
 
-    // while there is a number in left AND right arr
-    while (left[0] && right[0]){
+//     // while there is a number in left AND right arr
+//     while (left[0] && right[0]){
 
-        // remove with .shift() from start of array
-        // add with .push() to end of array
-        if(left[0] <right[0]){
-            arr.push(left.shift());
-        } else{
-            arr.push(right.shift());
-        }
+//         // remove with .shift() from start of array
+//         // add with .push() to end of array
+//         if(left[0] <right[0]){
+//             arr.push(left.shift());
+//         } else{
+//             arr.push(right.shift());
+//         }
+//     }
+
+//     // concatinate anything leftover
+//     return [...arr, ...left,...right]
+// }
+// function mergeSort(a) {
+//   const half = a.length / 2;
+
+//   if(a.length < 2) return a;
+
+//   const left = a.splice(0,half);
+//   return merge(mergeSort(left), mergeSort(a));
+
+// }
+
+// const randomArr = Array(20).fill().map(() => Math.floor(Math.random() * 50) +1);
+// console.log("Bubble Sort: \n", bubbleSort(randomArr));
+// console.log("Merge Sort: \n", mergeSort(randomArr));
+
+// ***********************************
+// generate HTML Table
+// -----------------------------------
+function genHTML(){
+    var myTableDiv = document.getElementById("myDynamicTable");
+    var table = document.createElement('TABLE');
+    var tableBody = document.createElement('TBODY');
+    var row = prompt("enter rows");
+    var col = prompt("enter cols");
+
+    table.border='1';   
+    table.appendChild(tableBody);
+    
+    for (var i=0; i<row; i++){
+       var tr = document.createElement('TR');
+       tableBody.appendChild(tr);
+       for (var j=0; j<col; j++){
+           var td = document.createElement('TD');
+           td.appendChild(document.createTextNode("Cell " + (i+1) + "," + (j+1)));
+           tr.appendChild(td);
+       }
     }
-
-    // concatinate anything leftover
-    return [...arr, ...left,...right]
+    myTableDiv.append(table);
 }
-function mergeSort(a) {
-  const half = a.length / 2;
-
-  if(a.length < 2) return a;
-
-  const left = a.splice(0,half);
-  return merge(mergeSort(left), mergeSort(a));
-
-}
-
-const randomArr = Array(20).fill().map(() => Math.floor(Math.random() * 50) +1);
-console.log("Bubble Sort: \n", bubbleSort(randomArr));
-console.log("Merge Sort: \n", mergeSort(randomArr));
