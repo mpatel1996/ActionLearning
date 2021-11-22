@@ -79,33 +79,101 @@ mycar2.logDriver();
 
 // document.getElementById("hello").innerHTML = oddOrEven(4);
 
-
-
 // *******************************
 // Rectangle Frame
 // -------------------------------
-function ast(len){
-    var startEnd = "";
-    for (i = 0; i < len; i++){
-        startEnd += "* ";
+// function ast(len){
+//     var startEnd = "";
+//     for (i = 0; i < len; i++){
+//         startEnd += "* ";
+//     }
+//     return startEnd;
+// }
+
+// function getLongest(arr){
+//     return arr.reduce((x,b) => x.length < b.length ? b : x, "");
+// }
+
+// function rectFrame(a){
+//     var newArr = "";
+//     var startEnd = ast(getLongest(a).length);
+//     newArr = (startEnd + "\n");
+//     for (j = 0; j < a.length; j++){
+//         newArr += "* " + a[j] +" *\n";
+//     };
+//     newArr += (startEnd + "\n");
+//     console.log(newArr);
+//     return newArr;
+// }
+// var a = ["hello", 'world','this','is','Mihir', 'Patel'];
+// rectFrame(a);
+
+// ******************************
+// A nor B
+// ------------------------------
+// function aNorB(s) {
+//   var now = "";
+//   var longest = "";
+
+//   for (i = 0; i < s.length; i++) {
+//     if (s[i] === "a" || s[i] === "b") {
+//       if (now.length > longest.length) longest = now;
+//       now = "";
+//     } else {
+//       now += s[i];
+//       console.log(now);
+//     }
+//   }
+//   return longest;
+// }
+
+// document.getElementById("hello").innerHTML = aNorB("abababcabcjdiehabcjs");
+
+// *******************************
+// Sorting methods
+// -------------------------------
+function bubbleSort(arr) {
+  for (let i = 0; i < arr.length; i++) {
+      for ( j = 0; j < arr.length - i -1; j++){
+        if(arr[j] > arr[j + 1]){
+            var temp = arr[j];
+            arr[j] = arr[j+1];
+            arr[j+1] = temp;
+        }
+      }
+  }
+
+  return arr;
+} // bubble sort
+
+function merge(left,right){
+    let arr = [];
+
+    // while there is a number in left AND right arr
+    while (left[0] && right[0]){
+
+        // remove with .shift() from start of array
+        // add with .push() to end of array
+        if(left[0] <right[0]){
+            arr.push(left.shift());
+        } else{
+            arr.push(right.shift());
+        }
     }
-    return startEnd;
+
+    // concatinate anything leftover
+    return [...arr, ...left,...right]
+}
+function mergeSort(a) {
+  const half = a.length / 2;
+
+  if(a.length < 2) return a;
+
+  const left = a.splice(0,half);
+  return merge(mergeSort(left), mergeSort(a));
+
 }
 
-function getLongest(arr){
-    return arr.reduce((x,b) => x.length < b.length ? b : x, "");
-}
- 
-function rectFrame(a){
-    var newArr = "";
-    var startEnd = ast(getLongest(a).length);
-    newArr = (startEnd + "\n");
-    for (j = 0; j < a.length; j++){
-        newArr += "* " + a[j] +" *\n";
-    };
-    newArr += (startEnd + "\n");
-    console.log(newArr);
-    return newArr;
-}
-var a = ["hello", 'world','this','is','Mihir', 'Patel'];
-rectFrame(a);
+const randomArr = Array(20).fill().map(() => Math.floor(Math.random() * 50) +1);
+console.log("Bubble Sort: \n", bubbleSort(randomArr));
+console.log("Merge Sort: \n", mergeSort(randomArr));
