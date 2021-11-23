@@ -166,9 +166,7 @@ mycar2.logDriver();
 // }
 // function mergeSort(a) {
 //   const half = a.length / 2;
-
 //   if(a.length < 2) return a;
-
 //   const left = a.splice(0,half);
 //   return merge(mergeSort(left), mergeSort(a));
 
@@ -181,24 +179,26 @@ mycar2.logDriver();
 // ***********************************
 // generate HTML Table
 // -----------------------------------
-function genHTML(){
-    var myTableDiv = document.getElementById("myDynamicTable");
-    var table = document.createElement('TABLE');
-    var tableBody = document.createElement('TBODY');
-    var row = prompt("enter rows");
-    var col = prompt("enter cols");
+function genHTML() {
+  var myTableDiv = document.getElementById("myDynamicTable");
+  var table = document.createElement("TABLE");
+  var tableBody = document.createElement("TBODY");
+  var row = prompt("enter rows");
+  var col = prompt("enter cols");
 
-    table.border='1';   
-    table.appendChild(tableBody);
-    
-    for (var i=0; i<row; i++){
-       var tr = document.createElement('TR');
-       tableBody.appendChild(tr);
-       for (var j=0; j<col; j++){
-           var td = document.createElement('TD');
-           td.appendChild(document.createTextNode("Cell " + (i+1) + "," + (j+1)));
-           tr.appendChild(td);
-       }
+  table.border = "1";
+  table.appendChild(tableBody);
+
+  for (var i = 0; i < row; i++) {
+    var tr = document.createElement("TR");
+    tableBody.appendChild(tr);
+    for (var j = 0; j < col; j++) {
+      var td = document.createElement("TD");
+      td.appendChild(
+        document.createTextNode("Cell " + (i + 1) + "," + (j + 1))
+      );
+      tr.appendChild(td);
     }
-    myTableDiv.append(table);
+  }
+  myTableDiv.append(table);
 }
