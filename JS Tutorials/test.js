@@ -91,18 +91,18 @@ mycar2.logDriver();
 // }
 
 // function getLongest(arr){
-//     return arr.reduce((x,b) => x.length < b.length ? b : x, "");
+//         return arr.reduce((x,b) => x.length < b.length ? b : x, "");
 // }
 
 // function rectFrame(a){
-//     var newArr = "";
+//        var newArr = "";
 //     var startEnd = ast(getLongest(a).length);
 //     newArr = (startEnd + "\n");
-//     for (j = 0; j < a.length; j++){
+//         for (j = 0; j < a.length; j++){
 //         newArr += "* " + a[j] +" *\n";
 //     };
 //     newArr += (startEnd + "\n");
-//     console.log(newArr);
+//       console.log(newArr);
 //     return newArr;
 // }
 // var a = ["hello", 'world','this','is','Mihir', 'Patel'];
