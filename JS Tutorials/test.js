@@ -179,26 +179,83 @@ mycar2.logDriver();
 // ***********************************
 // generate HTML Table
 // -----------------------------------
-function genHTML() {
-  var myTableDiv = document.getElementById("myDynamicTable");
-  var table = document.createElement("TABLE");
-  var tableBody = document.createElement("TBODY");
-  var row = prompt("enter rows");
-  var col = prompt("enter cols");
+// function genHTML() {
+//   var myTableDiv = document.getElementById("myDynamicTable");
+//   var table = document.createElement("TABLE");
+//   var tableBody = document.createElement("TBODY");
+//   var row = 3;
+//   var col = 4;
 
-  table.border = "1";
-  table.appendChild(tableBody);
+//   table.border = "1";
+//   table.appendChild(tableBody);
 
-  for (var i = 0; i < row; i++) {
-    var tr = document.createElement("TR");
-    tableBody.appendChild(tr);
-    for (var j = 0; j < col; j++) {
-      var td = document.createElement("TD");
-      td.appendChild(
-        document.createTextNode("Cell " + (i + 1) + "," + (j + 1))
-      );
-      tr.appendChild(td);
-    }
+//   for (var i = 0; i < row; i++) {
+//     var tr = document.createElement("TR");
+//     tableBody.appendChild(tr);
+//     for (var j = 0; j < col; j++) {
+//       var td = document.createElement("TD");
+//       td.appendChild(
+//         document.createTextNode("Cell " + (i + 1) + "," + (j + 1))
+//       );
+//       tr.appendChild(td);
+//     }
+//   }
+//   myTableDiv.append(table);
+// }
+
+// let arr = ['hello', 'world'];
+// var obj = {
+//   name: " h",
+//   length: 1
+// };
+// var newArr = [];
+// let na = (arr) => {
+//   for (let i = 0; i < arr.length; i++) {
+//         newArr.push({
+//           name: arr[i],
+//           length: arr[0].length
+//         });
+//   };
+//   return newArr;
+// }
+
+// console.log(na);
+
+class Account {
+  constructor(id, name, balance) {
+    this.id = id;
+    this.name = name;
+    this.balance = balance;
   }
-  myTableDiv.append(table);
 }
+class savingAccount extends Account {
+  constructor(interest) {
+    super(interest);
+    this.interest = interest;
+  }
+  getInterest() {
+    return this.interest;
+  }
+}
+
+class currentAccount extends Account {
+  constructor(balance) {
+    super(balance);
+    this.cash_cred = balance.balance;
+  }
+  getBalance() {
+    return this.cash_cred;
+  }
+}
+
+let acc1 = new Account(1, "Alec", 1000);
+let acc2 = new Account(2, "Mihir", 3000);
+let currentAccount1 = new currentAccount(acc1);
+let currentAccount2 = new currentAccount(acc2);
+let savingAccount1 = new savingAccount(0.8);
+let savingAccount2 = new savingAccount(0.5);
+
+console.log(`${currentAccount1.getBalance()} in ${acc1.name}'s account`);
+console.log(`${currentAccount2.getBalance()} in ${acc2.name}'s account`);
+console.log(`${savingAccount1.getInterest()} intrest for ${acc1.name}'s account`); 
+console.log(`${savingAccount2.getInterest()} intrest for ${acc2.name}'s account`); 
