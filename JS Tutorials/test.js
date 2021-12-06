@@ -239,9 +239,9 @@ class savingAccount extends Account {
 }
 
 class currentAccount extends Account {
-  constructor(balance) {
-    super(balance);
-    this.cash_cred = balance.balance;
+  constructor(acountOf) {
+    super(acountOf);
+    this.cash_cred = acountOf.balance;
   }
   getBalance() {
     return this.cash_cred;
@@ -255,7 +255,11 @@ let currentAccount2 = new currentAccount(acc2);
 let savingAccount1 = new savingAccount(0.8);
 let savingAccount2 = new savingAccount(0.5);
 
-console.log(`${currentAccount1.getBalance()} in ${acc1.name}'s account`);
-console.log(`${currentAccount2.getBalance()} in ${acc2.name}'s account`);
-console.log(`${savingAccount1.getInterest()} intrest for ${acc1.name}'s account`); 
-console.log(`${savingAccount2.getInterest()} intrest for ${acc2.name}'s account`); 
+console.log(`$${currentAccount1.getBalance()} in ${acc1.name}'s account`);
+console.log(`$${currentAccount2.getBalance()} in ${acc2.name}'s account`);
+console.log(
+  `${savingAccount1.getInterest()} intrest for ${acc1.name}'s account`
+);
+console.log(
+  `${savingAccount2.getInterest()} intrest for ${acc2.name}'s account`
+);
