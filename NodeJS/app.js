@@ -1,16 +1,28 @@
-var http = require('http');
-var fs = require('fs');
+var express = require("express");
+var app = express();
+var bodyParser = require('body-parser');
 
-var server = http.createServer(function(req,res){
-    console.log('request was made: ', req.url);
-    res.writeHead(200, {'content-type': 'text/html'});
-    
-    // Only able to send HTML as static read only. 
-    // Does not take the src scripts from HTML.
-    var myReadFs = fs.createReadStream( "./index.html", 'utf8');
-    myReadFs.pipe(res);
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
+
+app.set("view engine", "ejs");
+app.use('/assets', express.static('assets'));
+
+app.get("/", function (req, res) {
+  res.render('index');
 });
 
-server.listen(3000, '127.0.0.1');
-console.log("Listening to server"); 
+app.get("/contact", function (req, res) {
+  res.render('contact', {qs: req.query});
+});
 
+app.post("/contact", urlencodedParser, function (req, res) {
+  console.log(req.body);
+  res.render('contact-success', {data: req.body});
+});
+
+app.get("/profile/:id", function (req, res) {
+  var data = { age: 29, job: "dev" , hobbies: ['Dota', 'Movies','Snowboarding']};
+  res.render("profile", { person: req.params.id, data: data});
+});
+
+app.listen(3000);

@@ -1,0 +1,17 @@
+{
+  "name": "nodejs",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed adipiscing diam donec adipiscing tristique risus nec. Egestas integer eget aliquet nibh praesent tristique magna sit. Ligula ullamcorper malesuada proin libero nunc consequat interdum varius. Nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc. Non diam phasellus vestibulum lorem sed risus ultricies tristique. Proin fermentum leo vel orci porta non pulvinar. Et malesuada fames ac turpis egestas integer. Ut sem nulla pharetra diam. Id venenatis a condimentum vitae sapien. Condimentum lacinia quis vel eros donec. In cursus turpis massa tincidunt dui ut.",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "ejs-lint": "^1.2.1",
+    "express": "^4.17.1",
+    "iconv-lite": "^0.6.3"
+  }
+}
