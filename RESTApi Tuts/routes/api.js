@@ -3,7 +3,12 @@ const Dev = require("../models/dev");
 const router = express.Router();
 
 router.get("/devs", function (req, res, next) {
-    res.send({ type: "get" });
+    Dev.geoNear(
+        {type: 'Point', coordinates: [parseFloat(req.query.lng), parseFloat(req.query.lat)]},
+        {maxDistance: 100000, spherical: true}
+    ).then(function(devs){
+        res.send(devs);
+    }).catch(next);
 });
 
 router.post("/devs", function (req, res, next) {
