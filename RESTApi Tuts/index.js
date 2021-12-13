@@ -7,6 +7,7 @@ const app = express();
 mongoose.connect("mongodb://localhost/devsdb");
 mongoose.Promise = global.Promise;
 
+app.use(express.static("./public"));
 app.use(bodyParser.json());
 
 // routes for api's with api parameter pathway
