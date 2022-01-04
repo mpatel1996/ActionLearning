@@ -21,6 +21,6 @@ app.use(function (err, req, res, next) {
     });
 });
 
-app.listen(process.env.port || 8000, function () {
+module.exports = app.listen(process.env.port || 8000, function () {
     console.log("Listening to Port");
 });
