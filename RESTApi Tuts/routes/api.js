@@ -3,16 +3,20 @@ const Dev = require("../models/dev");
 const router = express.Router();
 
 router.get("/devs/all", function (req, res, next) {
-    Dev.find().then(function (dev) {
-        res.send(dev);
-    }).catch(next);
+    Dev.find()
+        .then(function (dev) {
+            res.send(dev);
+        })
+        .catch(next);
 });
 
-router.get('/devs/:id', function (req,res,next) {
-    Dev.findById({ _id: req.params.id }).then(function (dev) {
-        res.send(dev);
-    }).catch(next);
-})
+router.get("/devs/:id", function (req, res, next) {
+    Dev.findById({ _id: req.params.id })
+        .then(function (dev) {
+            res.send(dev);
+        })
+        .catch(next);
+});
 
 router.get("/devs", function (req, res, next) {
     Dev.aggregate()
@@ -28,7 +32,8 @@ router.get("/devs", function (req, res, next) {
         .then(function (devs) {
             // console.log(devs);
             res.send(devs);
-        }).catch(next);
+        })
+        .catch(next);
 });
 
 router.post("/devs", function (req, res, next) {
